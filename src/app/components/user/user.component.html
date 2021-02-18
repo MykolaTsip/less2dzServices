@@ -1,0 +1,33 @@
+<div class="user">
+  id: {{user.id}} <br>
+  name: {{user.name}} <br>
+  username: {{user.username}} <br>
+  email: {{user.email}}
+
+  <hr>
+  <button (click)="userOfPost(user.id)">Show post to user</button>
+</div>
+
+<div  *ngIf="posts">
+  <div class="post" *ngFor="let p of posts">
+   post id: {{p.id}} <br>
+    user id: {{p.userId}} <br>
+    title: {{p.title}} <br>
+    body: {{p.body}}
+
+    <hr>
+    <button (click)="postOfComment(p.id)">Show comment to post</button>
+    <hr>
+    <div *ngIf="comment">
+      <div class="comment" *ngFor="let c of comment">
+        comment id: {{c.id}} <br>
+        post id: {{c.postId}} <br>
+        name: {{c.name}} <br>
+        email: {{c.email}} <br>
+        body: {{c.body}}
+      </div>
+    </div>
+  </div>
+</div>
+
+
